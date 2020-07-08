@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#version = 1.1
 #Please fill the path to the API before running the script (only csv or txt file)
 API_KEY="Path/to/the/API/Key/file"
 API_ID="Path/to/the/API/ID/file"
@@ -8,6 +9,7 @@ Sub_ORG="Path/to/the/Sub/ORG/file"
 
 if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
   echo "Usage: `basename $0` filename.csv "
+  echo "scripte version 1.1"
   exit 0
 fi
 

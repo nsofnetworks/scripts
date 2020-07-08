@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#version = 1.1
 #Please fill the path to the API before running the script (only csv or txt file)
 API_KEY="Path/to/the/API/Key/file"
 API_ID="Path/to/the/API/ID/file"
@@ -10,6 +11,7 @@ if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
   echo "Usage: `basename $0` filename.csv API-ID API-key "
   echo "File format should be as following: ServiceName,Description(optional),IP\Hostname,Aliase(optional),MPID"
   echo "note:verify the file dosen't habe spaces"
+  echo "script version 1.1"
   exit 0
 fi
 
