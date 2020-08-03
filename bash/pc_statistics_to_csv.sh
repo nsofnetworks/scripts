@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#this script will provide the option to get statistics regarding failed posture check attempt
+
 #Please fill the path to the API before running the script (only csv or txt file)
 #API Secret
 API_KEY="Path/to/the/API/Key/file"
@@ -8,7 +10,7 @@ API_KEY="Path/to/the/API/Key/file"
 API_ID="Path/to/the/API/ID/file"
 
 #Sub_Org is Optional
-Sub_ORG="Path/to/the/Sub/ORG/file""
+Sub_ORG="Path/to/the/Sub/ORG/file"
 
 if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
   echo "Usage: `basename $0` filename.csv "
