@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#this script will provide a csv file with the devices and the related agent version
+#the CSV format will present as the following: created_at,id,name,owner_id,platform_version,platform,serial_number
 #version = 1.1
 #Please fill the path to the API before running the script (only csv or txt file)
 API_KEY="Path/to/the/API/Key/file"

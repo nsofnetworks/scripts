@@ -1,4 +1,8 @@
 #!/bin/bash
+
+#this script will provide a csv file with all enabled users and the group\s they are part of.
+#the csv foramt will be as following: Email,Family Name, Private Name,Groups,Role
+
 #version 1.2
 #Please fill the path to the API before running the script (only csv or txt file)
 API_KEY="Path/to/the/API/Key/file"

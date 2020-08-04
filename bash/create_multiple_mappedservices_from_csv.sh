@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#This script will provide the option to import multiple mapped services that has been writen in a csv file
+#the csv file format should be as following: name,description,ip\hostname,aliase,MetaPort-ID
 #version = 1.1
 #Please fill the path to the API before running the script (only csv or txt file)
 API_KEY="Path/to/the/API/Key/file"
