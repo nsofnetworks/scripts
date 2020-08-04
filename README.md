@@ -2,8 +2,6 @@
 
 *The following scripts will provide the option to import\export data from your proofpoint | meta networks tenant*
 
-<br/>
-
 ## Before you begin
 
 Verify that you have the following:
