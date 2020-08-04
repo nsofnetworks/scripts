@@ -1,4 +1,5 @@
 ﻿# ##########################################
+#this script will provide the option to enable ipv6 on windows client, UAC will pop up if the script isn't runing with admin permissions
 # Determine if we have Administrator rights
 Write-Host 'Checking user permissions... '
 $windowsID = [System.Security.Principal.WindowsIdentity]::GetCurrent()
