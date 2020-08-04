@@ -13,7 +13,7 @@ Follow these steps to use the Proofpoint Meta API script for data export:
 * Create a file with the generated API secret.
 * Create a file with the generated API ID.
 * If using Managed Security Service Provider (MSSP) mode, create a file with the required organization name.
-> **Note:** The files can be saved in a TXT or SCV formats, the script will process only the first line of the file to looking for the required data.
+> **Note:** The files can be saved in a TXT or CSV formats, the script will process only the first line of the file to looking for the required data.
 
 ## Editing the script
 
