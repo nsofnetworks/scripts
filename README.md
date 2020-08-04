@@ -20,7 +20,7 @@ Follow these steps to use the Proofpoint Meta API script for data export:
 ## Editing the script
 
 1. Open the script file.
-2. Edit the path for the API_KEY, API_ID and for SUB_ORG (if exists) in lines 3 to 7 and paste the path to the previously-created files. See the script sample below:
+2. Edit the path for the ```API_KEY, API_ID``` and for ```SUB_ORG``` (if exists) in lines 3 to 7 and paste the path to the previously-created files. See the script sample below:
 ```bash
 #Please fill the path to the API before running the script (only csv or txt file)
 API_KEY="Path/to/the/API/Key/file"
@@ -31,7 +31,7 @@ Sub_ORG="Path/to/the/Sub/ORG/file"
 
 ## Scripts Libary
 ### bash
-- 'export_data_to_csv':
+- ```export_data_to_csv```:
 this script providing the option to export the following data:
 1.Active users last 30 days - Minimum,Average,Maximum
 2.Roles - ID,Name,Role
@@ -48,7 +48,7 @@ this script providing the option to export the following data:
 100.All data above
 
 
-- 'create_multiple_mappedservices_from_csv.sh':
+- ```create_multiple_mappedservices_from_csv.sh:```
 This script will provide the option to import multiple mapped services that has been writen in a csv file
 the csv file format should be as following: name,description,ip\hostname,aliase,MetaPort-ID
 
@@ -56,18 +56,18 @@ the csv file format should be as following: name,description,ip\hostname,aliase,
 this script will provide a csv file with the devices and the related agent version
 the CSV format will present as the following: created_at,id,name,owner_id,platform_version,platform,serial_number
 
-- 'get_enabled_users_and_groups_realation_.sh':
+- ```get_enabled_users_and_groups_realation_.sh```:
 this script will provide a csv file with all enabled users and the group\s they are part of.
 the csv foramt will be as following: Email,Family Name, Private Name,Groups,Role
 
-- 'pc_statistics_to_csv.sh':
+- ```pc_statistics_to_csv.sh```:
 this script will provide the option to get statistics regarding failed posture check attempt
 
-- 'users_throughput_to_csv.sh':
+- ```users_throughput_to_csv.sh```:
 This script will provide the option to recieve a csv file with the 100 top users by throughput for organization
 
 ### powershell
-- 'enable_ipv6_windows.ps1':
+- ```enable_ipv6_windows.ps1```:
 this script will provide the option to enable ipv6 on windows client, UAC will pop up if the script isn't runing with admin permissions
 
 ## report a bug
