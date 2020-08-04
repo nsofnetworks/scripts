@@ -32,19 +32,19 @@ Sub_ORG="Path/to/the/Sub/ORG/file"
 ### bash
 - ```export_data_to_csv```:<br/>
 this script providing the option to export the following data:<br/>
-- Active users last 30 days - Minimum,Average,Maximum<br/>
-- Roles - ID,Name,Role<br/>
-- MetaPorts - ID,Name,Enabled,Mapped Elements<br/>
-- Mapped Subnets - ID,Name,CIDR,DNS Suffix:Enterprise DNS (true\flase),Host Name<br/>
-- Mapped service - ID,Name,IP\HostName,DNS Suffix<br/>
-- Policies - ID,Name,Created at,Description,Enabled,Modified at,Sources,Target,Protocols<br/>
-- Egress ID,Name,Source,Target,Via<br/>
-- Routing Groups - ID,Name,Mapped elements,Sources<br/>
-- Easy Links - ID,Name,Mapped elements,Domain name,IP/HostName (null=probably it's subnet),Port,Protocol,Viewers<br/>
-- Split Tunnel Configuration - ID,Name,All org,Members<br/>
-- IDPS - ID,Name,Created at,Modified at,SAML,SCIM key (if defined)<br/>
-- Log Streaming - ID,Name,SIEM Configuration (URL:Port:Protocol)<br/>
-- All data above<br/>
+1. Active users last 30 days - Minimum,Average,Maximum<br/>
+2. Roles - ID,Name,Role<br/>
+3. MetaPorts - ID,Name,Enabled,Mapped Elements<br/>
+4. Mapped Subnets - ID,Name,CIDR,DNS Suffix:Enterprise DNS (true\flase),Host Name<br/>
+5. Mapped service - ID,Name,IP\HostName,DNS Suffix<br/>
+6. Policies - ID,Name,Created at,Description,Enabled,Modified at,Sources,Target,Protocols<br/>
+7. Egress ID,Name,Source,Target,Via<br/>
+8. Routing Groups - ID,Name,Mapped elements,Sources<br/>
+9. Easy Links - ID,Name,Mapped elements,Domain name,IP/HostName (null=probably it's subnet),Port,Protocol,Viewers<br/>
+10. Split Tunnel Configuration - ID,Name,All org,Members<br/>
+11. IDPS - ID,Name,Created at,Modified at,SAML,SCIM key (if defined)<br/>
+12. Log Streaming - ID,Name,SIEM Configuration (URL:Port:Protocol)<br/>
+13. All data above<br/>
 
 
 - ```create_multiple_mappedservices_from_csv.sh:```<br/>
