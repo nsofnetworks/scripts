@@ -69,6 +69,10 @@ This script will provide the option to recieve a csv file with the 100 top users
 - ```enable_ipv6_windows.ps1```:<br/>
 this script will provide the option to enable ipv6 on windows client, UAC will pop up if the script isn't runing with admin permissions<br/>
 
+### python
+- ```create_users_from_csv.py```:<br/>
+This script will provide the option to create multiple users that has been writen in a csv file
+
 ## report a bug
 for reporting a bug please contact your proofpoint sales engineer.<br/>
 
