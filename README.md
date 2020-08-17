@@ -73,6 +73,9 @@ this script will provide the option to enable ipv6 on windows client, UAC will p
 - ```create_users_from_csv.py```:<br/>
 This script will provide the option to create multiple users that has been writen in a csv file
 
+- ```enable_metaconnect_all.py```: <br/>
+This script will provide the option to enable to enable mc for all users in org 
+
 ## report a bug
 for reporting a bug please contact your proofpoint sales engineer.<br/>
 
