@@ -2,7 +2,7 @@ import os
 import sys
 import json
 
-'''this script will provide the ability to patch multiple destinations to existing egress rule 
+'''this script will provide the ability to patch multiple destinations to existing egress rule from file
 
 reading the API keys has 2 options (file,env variables),by default the script will try to read from file and if not defined it will
 proceed to read from environemnt varaibles:
