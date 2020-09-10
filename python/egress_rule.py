@@ -1,8 +1,8 @@
 """
 This script creates Egress PoP Exception rules for several Microsoft Services.
-In order to use this script, you must pass the following environment vars:
-1. API_KEY_ID: Your API Key ID
-2. API_KEY_SECRET: Your API Key secret
+In order to use this script, you must pass the following environment vars (API KEY and API ID that generated from the UI):
+1. API_KEY_ID: <value>
+2. API_KEY_SECRET: <value>
 3. 'group_id': Replace with your group identifier that can be found in the UI.
 """
 
