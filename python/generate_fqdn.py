@@ -91,7 +91,7 @@ def is_hostname(instance):
 
 
 def _get_alias(device_name, domain_name):
-    return "%s.%s" % (domain_name, device_name) if domain_name else device_name
+    return "%s.%s" % (device_name, domain_name) if domain_name else device_name
 
 
 def _get_device_name(dev):
