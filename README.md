@@ -76,6 +76,35 @@ This script will provide the option to create multiple users that has been write
 - ```enable_metaconnect_all.py```: <br/>
 This script will provide the option to enable to enable mc for all users in org 
 
+- ```create_routing_group.py```: <br/>
+This script creates a single user routing group containing the group "All Users" as source
+
+- ```egress_rule.py```: <br/>
+This script creates Egress PoP Exception rules for several Microsoft Services.
+
+- ```egressdestination.py```: <br/>
+this script will provide the ability to patch multiple destinations to existing egress rule from file
+
+- ```enable_audit_settings.py```: <br/>
+This script enables audit settings mode to log Internet traffic and enable Meta Connect logs for created users
+
+- ```generate_fqdn.py```: <br/>
+This script generates DNS record per device/client (aka device alias).
+The DNS record is created from the device name and optionally concatenated
+with a domain name
+
+- ```macOS_pc_bestpractices.py```: <br/>
+This script implements several macOS security posture checks best practices in audit (Log only mode)
+
+- ```meta_device_mgmt.py```: <br/>
+This script creates a customized device settings and user settings
+
+- ```version_control.py```: <br/>
+This script configure the version control feature profile.
+
+- ```windows_pc_bestpractices.py```: <br/>
+This script implements several Windows security posture checks best practices in audit (Log only mode)
+
 ## report a bug
 for reporting a bug please contact your proofpoint sales engineer.<br/>
 
