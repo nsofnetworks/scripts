@@ -68,9 +68,7 @@ try:
         contentlist = None
 
 except:
-    print(
-        "please verify the path to API_KEY_ID and API_KEY_SECRET or your env variables and also that the key is valid with write privilege"
-        "to users")
+    print('please verify the path to API_KEY_ID and API_KEY_SECRET or your env variables and also that the key is valid with write privilege to users\nreading the API keys has 2 options (file,env variables),by default the script will try to read from file and if not defined it will proceed to read from environemnt varaibles:\nreading from file:\nPlease fill the path to API_KEY_ID_PATH,API_KEY_SECRET_PATH,ORGS_LIST_PATH before running the script (only csv or txt file)\nExample: "C:\\Users\\administrator\\Desktop\\ID.csv"\nreading from env variables:\nthe varaibles should be added as the following:\nAPI_KEY_ID = value\nAPI_KEY_SECRET = value')
     exit()
 
 # function to get access token
@@ -90,8 +88,7 @@ def get_access_token():
         response.raise_for_status()
         return response.json()['access_token']
     except Exception as e:
-        print("please verify the path to API_KEY_ID and API_KEY_SECRET and also that the key is valid with write "
-              "privilege to users")
+        print('please verify the path to API_KEY_ID and API_KEY_SECRET and also that the key is valid with write\nprivilege to users\nreading the API keys has 2 options (file,env variables),by default the script will try to read from file and if not defined it will proceed to read from environemnt varaibles:\nreading from file:\nPlease fill the path to API_KEY_ID_PATH,API_KEY_SECRET_PATH,ORGS_LIST_PATH before running the script (only csv or txt file)\nExample: "C:\\Users\\administrator\\Desktop\\ID.csv"\nreading from env variables:\nthe varaibles should be added as the following:\nAPI_KEY_ID = value\nAPI_KEY_SECRET = value')
         print(e)
         exit()
 
