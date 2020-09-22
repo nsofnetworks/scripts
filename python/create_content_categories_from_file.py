@@ -5,6 +5,7 @@ try:
     import requests
 except:
     print("please verify that the following packages installed: requests\n if not please run python -m pip install <pkgName>")
+    exit()
 
 '''this script will provide the ability to create "content categories" with a list of URL's or cntents categories
 
