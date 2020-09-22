@@ -105,6 +105,9 @@ This script configure the version control feature profile.
 - ```windows_pc_bestpractices.py```: <br/>
 This script implements several Windows security posture checks best practices in audit (Log only mode)
 
+- ```create_content_categories_from_file.py```: <br/>
+This script will provide the ability to create "content categories" with a list of URL's or cntents categories
+
 ## report a bug
 for reporting a bug please contact your proofpoint sales engineer.<br/>
 
