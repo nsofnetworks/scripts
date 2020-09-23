@@ -8,7 +8,7 @@ import argparse
 import pkg_resources
 
 
-'''This script will provide the option to enable to enable mc for all users in org  
+'''This script will provide the option to enable mc for all users in org  
 
 reading the API keys has 2 options (file,env variables),by default the script will try to read from file and if not defined it will
 proceed to read from environemnt varaibles:
