@@ -108,6 +108,9 @@ This script implements several Windows security posture checks best practices in
 - ```create_content_categories_from_file.py```: <br/>
 This script will provide the ability to create "content categories" with a list of URL's or cntents categories
 
+- ```unique_users_per_org.py```: <br/>
+This script will provide the ability to get number of connected unique users per month.
+
 ## report a bug
 for reporting a bug please contact your proofpoint sales engineer.<br/>
 
