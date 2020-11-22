@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #this script will provide a csv file with the devices and the related agent version
-#the CSV format will present as the following: created_at,id,name,owner_id,platform_version,platform,serial_number
-#version = 1.1
+#the CSV format will present as the following: created_at,id,name,owner_id,platform_version,platform,serial_number,last connection
+#version = 1.2
 #Please fill the path to the API before running the script (only csv or txt file)
 API_KEY="Path/to/the/API/Key/file"
 API_ID="Path/to/the/API/ID/file"
@@ -11,11 +11,10 @@ Sub_ORG="Path/to/the/Sub/ORG/file"
 
 if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
   echo "Usage: `basename $0` filename.csv "
-  echo "scripte version 1.1"
   exit 0
 fi
 
-trap 'rm ne_expand ne_expand2 tempusers' INT
+trap 'rm ne_expand ne_expand2 tempusers ne_connection' INT
 
 checkJq=$(which jq)
 if [ -z $checkJq ]; then
@@ -65,12 +64,13 @@ cat ne_expand | jq -r .'[] | select (.type=="Device") | select (.device_info) | 
 
 curl -X GET https://api.metanetworks.com/v1/users -H "Content-Type: application/json" -H "Authorization: Bearer $token" > tempusers
 
+curl -X GET https://api.metanetworks.com/v1/network_elements?connection=true -H "Content-Type: application/json" -H "Authorization: Bearer $token" > ne_connection
 
 
 rm ne_expand
 l=0
 line=0
-echo "created_at,id,device name,email,family name,private name,user id,agent version,platform,platform version,serial_number(if exist)" > $1
+echo "created_at,id,device name,email,family name,private name,user id,agent version,platform,platform version,last connection" > $1
 
 while IFS= read -r field1; do
 	((l = l+1))
@@ -80,6 +80,8 @@ while IFS= read -r field1; do
 	fi
 	if [ $l -eq 2 ]; then 
 	id=$field1
+	secid=`echo $field1 | sed 's/\\r//g'`
+	lastconnection=$(cat ne_connection | jq -r --arg secid "$secid" .'[] | select (.id==$secid) | (.connection| .connected_at)')	
 	continue
 	fi
 	if [ $l -eq 3 ]; then 
@@ -111,13 +113,13 @@ while IFS= read -r field1; do
 	if [ $l -eq 8 ]; then
 	((line = line+1))
 	echo "Writing line number" $line
-	str=$created_at,$id,$name,$owner_id,$platform_version,$platform,$serial_number
+	str=$created_at,$id,$name,$owner_id,$platform_version,$platform,$lastconnection
 	echo $str >> $1
 	l=0
 	continue
 	fi
 
 done < ne_expand2
-rm ne_expand2 tempusers
+rm ne_expand2 tempusers ne_connection
 
 
