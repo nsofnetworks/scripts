@@ -70,7 +70,7 @@ curl -X GET https://api.metanetworks.com/v1/network_elements?connection=true -H 
 rm ne_expand
 l=0
 line=0
-echo "created_at,id,device name,email,family name,private name,user id,agent version,platform,platform version,last connection" > $1
+echo "created_at,id,device name,email,family name,private name,user id,agent version,platform,platform version,last connection (UTM)" > $1
 
 while IFS= read -r field1; do
 	((l = l+1))
