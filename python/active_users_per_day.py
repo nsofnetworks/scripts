@@ -136,6 +136,7 @@ def active_users_per_day():
     day = json_extract(data, 'key')
     number= json_extract(data, 'value')
     z=number.split(",")
+    x = x - datetime.timedelta(1)
     for i in z:
          x = x + datetime.timedelta(1)
          printdatepretty=x.strftime("%Y,%B %d")
