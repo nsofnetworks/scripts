@@ -21,7 +21,7 @@ API_KEY_ID_PATH = "Replace this text with the path to the API ID file"
 API_KEY_SECRET_PATH = "Replace this text with the path to the API secret file"
 ORGS_LIST_PATH = "replace this string with the path to the file with the org shortname that you like to run this script"
 
-EORG=""
+EORG="ironsource"
 try:
     import json
 except:
@@ -136,9 +136,9 @@ def active_users_per_day():
     day = json_extract(data, 'key')
     number= json_extract(data, 'value')
     z=number.split(",")
+    y=day.split(",")
     x = x - datetime.timedelta(1)
-    for i in z:
-         x = x + datetime.timedelta(1)
-         printdatepretty=x.strftime("%Y,%B %d")
-         print(printdatepretty + ": "+i)
+    for i,o in zip(y,z):
+        tempname = (datetime.datetime.fromtimestamp(int(i) / 1000).strftime("%Y,%B %d"))
+        print(tempname+":",o)
 active_users_per_day()
