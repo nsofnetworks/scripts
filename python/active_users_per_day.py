@@ -21,7 +21,7 @@ API_KEY_ID_PATH = "Replace this text with the path to the API ID file"
 API_KEY_SECRET_PATH = "Replace this text with the path to the API secret file"
 ORGS_LIST_PATH = "replace this string with the path to the file with the org shortname that you like to run this script"
 
-EORG="ironsource"
+EORG=""
 try:
     import json
 except:
