@@ -11,6 +11,7 @@ try:
 except:
     print("please verify that the following packages installed: datetime\n if not you can install it by running  python -m pip install datetime")
     exit()
+
 try:
     import time
 except:
@@ -45,6 +46,7 @@ CONTENT_CATEGORIES_PATH = "replace this string with the path to the file with co
 
 #optional for MSSP'S or multi tenants customers
 EORG = ""
+
 
 # read the ID and Secret from file or from env variables
 API_ENDPOINT = os.getenv("NSOF_API_ENDPOINT", "https://api.metanetworks.com")
@@ -113,7 +115,7 @@ now = datetime.now() # current date and time
 date=now.strftime("%Y-%m-%d,%H-%M-%S")
 fname=EORG+".users.list."+date+".csv"
 f = open(fname, 'w', encoding="utf-8")
-title = "user ID,email,first name,last name\n"
+title = "user ID,email,first name,last name,status\n"
 f.write(title)
 
 Next="a"
@@ -124,6 +126,7 @@ while B==1:
     # getting access token and starting parameters for loop
     token = get_access_token()
     # count time for refresh token
+    import time
     start_time = time.time()
     t_end = time.time() + 60 * 3
     #if to done a loop
@@ -155,7 +158,8 @@ while B==1:
             email = json_extract(i, 'email')
             first_name = json_extract(i, 'given_name')
             last_name = json_extract(i, 'family_name')
-            laststring = "%s,%s,%s,%s\n" % (iduser, email, first_name, last_name)
+            status = json_extract(i,'enabled')
+            laststring = "%s,%s,%s,%s,%s\n" % (iduser, email, first_name, last_name,status)
             f.write(laststring)
 
 print("script done successfully, file has been saved as:")
