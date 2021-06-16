@@ -153,6 +153,7 @@ while B==1:
         except:
             Next=""
             B = 10
+        #Pharsing items
         for i in r['items']:
             iduser = json_extract(i, 'id')
             email = json_extract(i, 'email')
