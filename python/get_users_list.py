@@ -17,7 +17,7 @@ try:
 except:
     print("please verify that the following packages installed: time\n if not you can install it by running  python -m pip install time")
     exit()
-'''this script will provide the ability to get users list in org to CSV file, the content of the CSV is as following: ID,Email,First name,Last name
+'''this script will provide the ability to get users list in org to CSV file, the content of the CSV is as following: ID,Email,First name,Last name,status,group
 
 reading the API keys has 2 options (file,env variables),by default the script will try to read from file and if not defined it will
 proceed to read from environemnt varaibles:
@@ -46,7 +46,6 @@ CONTENT_CATEGORIES_PATH = "replace this string with the path to the file with co
 
 #optional for MSSP'S or multi tenants customers
 EORG = ""
-
 
 # read the ID and Secret from file or from env variables
 API_ENDPOINT = os.getenv("NSOF_API_ENDPOINT", "https://api.metanetworks.com")
@@ -115,8 +114,26 @@ now = datetime.now() # current date and time
 date=now.strftime("%Y-%m-%d,%H-%M-%S")
 fname=EORG+".users.list."+date+".csv"
 f = open(fname, 'w', encoding="utf-8")
-title = "user ID,email,first name,last name,status\n"
+title = "user ID,email,first name,last name,groups\n"
 f.write(title)
+
+
+def groupslist():
+    token = get_access_token()
+    url = "%s/v1/groups?expand=true" % (API_ENDPOINT)
+    headers = {'Authorization': 'Bearer %s' % token}
+    response = requests.get(url=url, headers=headers)
+    r = response.json()
+    newlist=[]
+    for i in r:
+        sec=[]
+        sec=[i['name']]
+        sec.append(i['members'])
+        newlist.append(sec)
+
+    return (newlist)
+    #print(r)
+groupslist2=groupslist()
 
 Next="a"
 num=1
@@ -132,7 +149,6 @@ while B==1:
     #if to done a loop
     if Next == "":
         B = 10
-
     #while loop to get the users list and pharse data from each user to CSV file
     while Next!= "" and time.time() < t_end:
         if num==1:
@@ -143,24 +159,26 @@ while B==1:
         headers = {'Authorization': 'Bearer %s' % token}
         response = requests.get(url=url, headers=headers)
         r = response.json()
-        print(r)
+        #print(r)
         print("page number "+str(page_num)+" downloaded (1000 users per page)")
         page_num=page_num+1
-
         #pagination for recieving 1000 users per request (1000 is the limit)
         try:
             Next=r['next']
         except:
             Next=""
             B = 10
-        #Pharsing items
         for i in r['items']:
             iduser = json_extract(i, 'id')
             email = json_extract(i, 'email')
             first_name = json_extract(i, 'given_name')
             last_name = json_extract(i, 'family_name')
             status = json_extract(i,'enabled')
-            laststring = "%s,%s,%s,%s,%s\n" % (iduser, email, first_name, last_name,status)
+            groups=''
+            for l in groupslist2:
+                    if iduser in l[1]:
+                        groups+=l[0] + ','
+            laststring = "%s,%s,%s,%s,%s,%s\n" % (iduser, email, first_name, last_name,status,groups)
             f.write(laststring)
 
 print("script done successfully, file has been saved as:")
